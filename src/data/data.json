@@ -1,0 +1,83 @@
+[
+    {
+      "id": 1,
+      "initials": "JC",
+      "name": "Jane Cooper",
+      "email": "nevaeh.simmons@example.com",
+      "date": "18/06/2024",
+      "color": "bg-blue-600"
+    },
+    {
+      "id": 2,
+      "initials": "WA",
+      "name": "Wade Arren",
+      "email": "michael.mitc@example.com",
+      "date": "18/06/2024",
+      "color": "bg-blue-300"
+    },
+    {
+      "id": 3,
+      "initials": "EH",
+      "name": "Esther Howard",
+      "email": "alma.lawson@example.com",
+      "date": "18/06/2024",
+      "color": "bg-purple-600"
+    },
+    {
+      "id": 4,
+      "initials": "CW",
+      "name": "Cameron Williamson",
+      "email": "dolores.chambers@example.com",
+      "date": "18/06/2024",
+      "color": "bg-purple-300"
+    },
+    {
+      "id": 5,
+      "initials": "BS",
+      "name": "Brooklyn Simmons",
+      "email": "curtis.weaver@example.com",
+      "date": "18/06/2024",
+      "color": "bg-orange-500"
+    },
+    {
+      "id": 6,
+      "initials": "LA",
+      "name": "Leslie Alexander",
+      "email": "debra.holt@example.com",
+      "date": "18/06/2024",
+      "color": "bg-orange-300"
+    },
+    {
+      "id": 7,
+      "initials": "JW",
+      "name": "Jenny Wilson",
+      "email": "curtis.weaver@example.com",
+      "date": "18/06/2024",
+      "color": "bg-green-600"
+    },
+    {
+      "id": 8,
+      "initials": "RF",
+      "name": "Robert Fox",
+      "email": "michael.mitc@example.com",
+      "date": "18/06/2024",
+      "color": "bg-green-300"
+    },
+    {
+      "id": 9,
+      "initials": "JJ",
+      "name": "Jacob Jones",
+      "email": "kenzi.lawson@example.com",
+      "date": "18/06/2024",
+      "color": "bg-teal-600"
+    },
+    {
+      "id": 10,
+      "initials": "SN",
+      "name": "Savannah Nguyen",
+      "email": "curtis.weaver@example.com",
+      "date": "18/06/2024",
+      "color": "bg-teal-300"
+    }
+  ]
+  
