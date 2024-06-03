@@ -76,7 +76,7 @@ const UserTable: React.FC<UserTableProps> = ({ columns = [], rows = [] }) => {
           </div>
         </div>
       </div>
-      <div className="mt-[32px] overflow-x-auto">
+      <div className="mt-[32px]">
         <table className="min-w-full">
           <thead>
             <tr className="mb-[20px]">
