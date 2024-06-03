@@ -14,7 +14,7 @@ const Users = () => {
                 <PlusButton />
             </div>
             <div className="py-6">
-              <UserTable/>
+                <UserTable />
             </div>
 
         </div>

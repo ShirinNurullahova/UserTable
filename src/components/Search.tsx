@@ -8,7 +8,7 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, handleSearchChange }) => {
   return (
-    <div className="flex items-center bg-gray-100 rounded-full px-4 py-2 mb-4">
+    <div className="flex items-center bg-gray-100 rounded-[10px] px-4 py-2 mb-4">
       <img src={searchIcon} alt="Search" className="h-5 w-5 mr-2" />
       <input
         type="text"
