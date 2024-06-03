@@ -12,7 +12,7 @@ const Header: React.FC = () => {
       <div className="flex items-center space-x-4">
         <img src={search} alt="Search" className="h-6 w-6 text-gray-500 hover:text-gray-700" />
         <img src={notification} alt="Notification" className="h-6 w-6 text-gray-500 hover:text-gray-700" />
-        <div className="w-8 h-8 rounded-full bg-custom-blue text-white text-sm flex items-center justify-center">
+        <div className="w-[44px] h-[44px] rounded-full bg-custom-blue text-white text-sm flex items-center justify-center">
           SA
         </div>
         <div className="flex items-center space-x-1 text-gray-500 hover:text-gray-700">
