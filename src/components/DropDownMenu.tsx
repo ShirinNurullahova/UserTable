@@ -10,10 +10,10 @@ interface DropdownMenuProps {
   actions: Action[];
 }
 
-const DropdownMenu: React.FC<DropdownMenuProps> = ({ actions }) => {
+const DropdownMenu: React.FC<DropdownMenuProps> = ({ actions = [] }) => {
   return (
    
-      <div className="absolute right-[20px] z-1000 w-48 bg-white border border-gray-200 rounded shadow-lg">
+      <div className="absolute right-[20px] z-10 w-48 bg-white border border-gray-200 rounded shadow-lg">
         {actions.map((action, index) => (
           <button
             key={index}
