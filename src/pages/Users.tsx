@@ -10,7 +10,7 @@ const Users = () => {
             <Header />
             <Breadcrumb />
             <div className="p-6 flex justify-between items-center mt-4">
-                <h1 className="text-2xl font-bold">Users</h1>
+                <h1 className="text-[32px] font-semibold">Users</h1>
                 <PlusButton />
             </div>
             <div className="py-6">

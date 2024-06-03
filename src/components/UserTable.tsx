@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import rightArrow from '../assets/images/arrow-right.svg';
 import SearchBar from './Search';
 import { useAppDispatch, useAppSelector } from '../redux/store';
 import { getUsers, selectAllUsers } from '../redux/slices/userSlice';
@@ -7,6 +6,7 @@ import dots from './../assets/images/dots-horizontal.svg';
 import EditUser from './EditUser';
 import dropDownIcon from './../assets/images/Vector.svg'
 import filterIcon from '../assets/images/filter.svg'
+import Pagination from './Pagination';
 
 
 
@@ -16,7 +16,8 @@ const UserTable: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredUsers, setFilteredUsers] = useState<User[]>(users);
   const [editingUserId, setEditingUserId] = useState<number | null>(null);
-  
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
   useEffect(() => {
     dispatch(getUsers());
   }, [dispatch]);
@@ -45,11 +46,16 @@ const UserTable: React.FC = () => {
   const closeEditUser = () => {
     setEditingUserId(null);
   };
-
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedUsers = filteredUsers.slice(startIndex, startIndex + itemsPerPage);
+  const totalPages = Math.ceil(filteredUsers.length / itemsPerPage);
   return (
     <div className="p-4 border border-gray-200 rounded-lg shadow-sm bg-white">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold">All Users</h1>
+      <div className="flex justify-between items-center ">
+        <h1 className="text-[23px] font-bold ">All Users</h1>
 
         <div className='flex'>
           <SearchBar searchTerm={searchTerm} handleSearchChange={handleSearchChange} />
@@ -71,31 +77,31 @@ const UserTable: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mt-[32px]">
         <table className="min-w-full">
           <thead>
-            <tr>
-              <th className="py-2 px-4 border-b text-left text-sm font-medium text-gray-500">N°</th>
-              <th className="py-2 px-4 border-b text-left text-sm font-medium text-gray-500">Status</th>
-              <th className="py-2 px-4 border-b text-left text-sm font-medium text-gray-500">Full name</th>
-              <th className="py-2 px-4 border-b text-left text-sm font-medium text-gray-500">Email</th>
-              <th className="py-2 px-4 border-b text-left text-sm font-medium text-gray-500">Date</th>
-              <th className="py-2 px-4 border-b text-left text-sm font-medium text-gray-500">Edit</th>
+            <tr  className='mb-[20px]'>
+              <th className="py-2  border-b  border-gray-100 text-left text-[16px] font-medium text-black w-[50px]">N°</th>
+              <th className="py-2  border-b border-gray-100 text-left text-[16px] font-medium text-black w-[100px]">Status</th>
+              <th className="py-2  border-b border-gray-100 text-left text-[16px] font-medium text-black w-[200px]">Full name</th>
+              <th className="py-2  border-b border-gray-100 text-left text-[16px] font-medium text-black w-[300px]">Email</th>
+              <th className="py-2  border-b border-gray-100 text-left text-[16px] font-medium text-black ">Date</th>
+              <th className="py-2  border-b border-gray-100 text-left text-[16px] font-medium text-black w-[50px]">Edit</th>
             </tr>
           </thead>
           <tbody>
-            {filteredUsers?.map((user) => (
+            {paginatedUsers?.map((user) => (
               <tr key={user.id} className="hover:bg-gray-50">
-                <td className="py-2 px-4 border-b border-gray-100 text-sm text-gray-700">{user.id}</td>
-                <td className="py-2 px-4 border-b border-gray-100 text-sm text-gray-700">
+                <td className="py-2  border-b border-gray-100 text-[13px] text-custom-gray">{user.id}</td>
+                <td className="py-2  border-b border-gray-100 text-sm text-custom-gray">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white ${user.color}`}>
                     {user.initials}
                   </div>
                 </td>
-                <td className="py-2 px-4 border-b border-gray-100 text-sm text-gray-700">{user.name}</td>
-                <td className="py-2 px-4 border-b border-gray-100 text-sm text-gray-700">{user.email}</td>
-                <td className="py-2 px-4 border-b border-gray-100 text-sm text-gray-700">{user.date}</td>
-                <td className="py-2 px-4 border-b cursor-pointer border-gray-100 text-sm text-gray-700">
+                <td className="py-2  border-b border-gray-100 text-[14px] text-custom-gray">{user.name}</td>
+                <td className="py-2  border-b border-gray-100 text-[14px] text-custom-gray  w-[50px]">{user.email}</td>
+                <td className="py-2  border-b border-gray-100 text-[14px] text-custom-gray">{user.date}</td>
+                <td className="py-2 relative z-1 border-b cursor-pointer border-gray-100 text-[14px] text-custom-gray">
                   <img src={dots} alt="edit" onClick={() => handleEditUser(user.id)} />
                   {editingUserId === user.id && <EditUser user={user} onClose={closeEditUser} />}
                 </td>
@@ -104,23 +110,7 @@ const UserTable: React.FC = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex justify-between items-center py-8">
-        <button className="flex items-center text-gray-600 hover:text-gray-800">
-          <img className="transform rotate-180 mx-3" src={rightArrow} alt="Previous" />Previous
-        </button>
-        <div className="flex space-x-8">
-          <button className="text-blue-500">1</button>
-          <button className="text-gray-500">2</button>
-          <button className="text-gray-500">3</button>
-          <span className="text-gray-500">...</span>
-          <button className="text-gray-500">8</button>
-          <button className="text-gray-500">9</button>
-          <button className="text-gray-500">10</button>
-        </div>
-        <button className="flex items-center text-gray-600 hover:text-gray-800">
-          Next <img className="mx-3" src={rightArrow} alt="Next" />
-        </button>
-      </div>
+      <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}/>
     </div>
   );
 };

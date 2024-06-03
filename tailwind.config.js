@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
+        'custom-dots':'#503DF2',
         'custom-blue': '#3E8ED4',
+        'custom-gray': '#666666',
         'blue': {
           300: '#93C5FD',
           600: '#2563EB',
@@ -28,7 +30,17 @@ export default {
           300: '#86EFAC',
           600: '#16A34A',
         }
+        
       },
+      fontFamily: {
+        'nunito-sans': ['"Nunito Sans"', 'sans-serif'],
+      },
+      fontSize: {
+        sm: ['14px', '20px'],
+        base: ['16px', '24px'],
+        lg: ['20px', '28px'],
+        xl: ['24px', '32px'],
+      }
     },
   },
   plugins: [],
